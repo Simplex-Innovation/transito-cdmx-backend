@@ -8,7 +8,7 @@ open System
 open System.IO
 
 Environment.CurrentDirectory <- __SOURCE_DIRECTORY__
-let solutionFile = "transito-cdmx\transito-cdmx.fsproj"
+let solutionFile = "transito-cdmx/transito-cdmx.fsproj"
 
 let deployDir = "./"
 
@@ -26,7 +26,7 @@ Target "StageWebsiteAssets" (fun _ ->
     let shouldInclude (file:string) =
         blacklist
         |> Seq.forall(not << file.Contains)
-    Kudu.stageFolder (Path.GetFullPath @"transito-cdmx\WebHost") shouldInclude)
+    Kudu.stageFolder (Path.GetFullPath @"transito-cdmx/WebHost") shouldInclude)
 
 Target "BuildSolution" (fun _ ->
     solutionFile
