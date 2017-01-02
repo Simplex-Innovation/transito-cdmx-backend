@@ -40,8 +40,7 @@ Target "BuildSolution" (fun _ ->
 
 Target "Deploy" Kudu.kuduSync
 
-"Clean"
-==> "StageWebsiteAssets"
+"StageWebsiteAssets"
 ==> "BuildSolution"
 ==> "Deploy"
 
