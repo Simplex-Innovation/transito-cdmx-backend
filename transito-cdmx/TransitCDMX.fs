@@ -13,10 +13,9 @@ type TransitoSchema = JsonProvider<"http://40.84.146.161:8080/sample.json">
 let callApi placa email =
     let loaded = TransitoSchema.Load("http://40.84.146.161:3000/api/v1/vehiculos/" + placa)
     let withEmail =
-        TransitoSchema.Root(email,loaded.AdeudosTenencias,loaded.Placa,loaded.Modelo,loaded.NumCilindros,
-          loaded.ProcedenciaNacional,loaded.ValorFactura,loaded.FechaFactura,loaded.Depreciacion,loaded.DepreciacionRestante,
+        TransitoSchema.Root(email,loaded.AdeudosTenencias,
           loaded.Infracciones,loaded.MontoAdeudoTenencias,loaded.MontoAdeudoInfracciones,loaded.MontoTotalAdeudos)
-    
+    //loaded.Placa,loaded.Modelo,loaded.NumCilindros, loaded.ProcedenciaNacional,loaded.ValorFactura,loaded.FechaFactura,loaded.Depreciacion,loaded.DepreciacionRestante,
 
     if email <> ""
     then
