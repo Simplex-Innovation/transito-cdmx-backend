@@ -8,10 +8,10 @@ open System.Collections.Generic
 open FSharp.Data
 open FSharp.Data.HttpRequestHeaders
 
-type TransitoSchema = JsonProvider<"http://40.84.146.161:8080/sample.json">
+type TransitoSchema = JsonProvider<"http://13.65.45.32:8080/sample.json">
 
 let callApi placa email =
-    let loaded = TransitoSchema.Load("http://40.84.146.161:3000/api/v1/vehiculos/" + placa)
+    let loaded = TransitoSchema.Load("http://13.65.45.32:3000/api/v1/vehiculos/" + placa)
     let withEmail =
         TransitoSchema.Root(email,loaded.AdeudosTenencias,
           loaded.Infracciones,loaded.MontoAdeudoTenencias,loaded.MontoAdeudoInfracciones,loaded.MontoTotalAdeudos)
